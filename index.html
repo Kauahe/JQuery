@@ -32,22 +32,74 @@
             top: 150px;
             
         }
+        
 
     </style>
 </head>
 <body>
-    <img id="foguete" src="foguete.gif" width="80px" class="foguete">
+    <img id="foguete" src="foguete.gif" width="80px" onclick="Comecar();" class="foguete">
+
+    <audio id="audio1"  autoplay="">
+        <source src="contagem_regressiva.mp3" type="audio/mp3">
+    </audio>
+
+     <audio id="audio2"  autoplay="">
+        <source src="lancamento_foguete.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="audio3"  autoplay="" >
+        <source src="problem.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="audio4" controls="" autoplay="" >
+        <source src="ring-side-by-side-Aug-3.wav" type="audio/mp3">
+    </audio>
+    
+    
+
+
     <img src="lua.png" width="200px" class="luinha">
 </body>
 <script src="jquery-3.7.0.min.js" ></script>
 
 <script>
+    function Comecar()
+    {
+      temporizador = setTimeout(Subir,20000)
+      contagem = document.getElementById('audio1');
+      contagem.play();
+
+      temporizador2 = setTimeout(Tocar2,20000)
+      temporizador3 = setTimeout(Tocar3,38000)
+      temporizador3 = setTimeout(Tocar4,45000)
+
+    }
+
+    function Tocar2()
+    {
+      contagem = document.getElementById('audio2');
+      contagem.play();
+    }
+
+    function Tocar3 ()
+    {
+      contagem = document.getElementById('audio3');
+      contagem.play();
+    }
+
+     function Tocar4 ()
+    {
+      contagem = document.getElementById('audio4');
+      contagem.play();
+    }
+    
+
 
     //vamos pegar o tempo inicial:
     d = new  Date();
     tempo_inicial = d.getTime();
 
-    temporizador = setTimeout(Subir,900)
+   
     x = 250
     y = 150
     ESQUERDA = ""
@@ -56,7 +108,7 @@
     {
         ESQUERDA = x + "px"
         TOPO = y + "px"
-        $("#foguete").animate({left:ESQUERDA ,top:TOPO},2000)
+        $("#foguete").animate({left:ESQUERDA ,top:TOPO},18000)
 
         temporizador = null
         temporizador = setInterval (Descer,2000)
